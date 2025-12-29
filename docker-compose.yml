@@ -1,0 +1,24 @@
+services:
+  web:
+    build: ./web
+    container_name: tuportal-web
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./web:/app
+    environment:
+      - FLASK_ENV=development
+    depends_on:
+      - db
+
+  db:
+    image: alpine
+    container_name: tuportal-db
+    volumes:
+      - ./db:/db
+    command: ["sh", "-c", "sleep infinity"]
+
+  vuln-linux:
+    build: ./vuln-linux
+    container_name: tuportal-vuln-linux
+    tty: true
