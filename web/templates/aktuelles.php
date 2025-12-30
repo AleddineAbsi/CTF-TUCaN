@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>TUCaN</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="outer-invisible-box">
+    <div class = "main-part">
+        <!-- Top login bar -->
+        <div>
+            <div class="top-bar">
+                <span class="top-bar-label">Name:</span>
+                <span class="session-info">placeholder</span>
+                <span class="top-bar-label">am:</span>
+                <span class="session-info">{{ now.strftime("%d.%m.%Y")}}</span>
+                <span class="top-bar-label">um:</span>
+                <span class="session-info">{{ now.strftime("%H:%M")}} Uhr</span>
+                <button type="button" class="btn-text">
+                    <img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Abmelden
+                </button>
+                <a>|</a>
+                <a href="{{ url_for('login') }}">English</a>
+            </div>
+
+            <div class="top-bar-2"></div>
+            <div class ="separator-line"></div>
+        </div>
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <img src ="{{ url_for('static', filename='logo.gif') }}" alt="TU Darmstadt logo" class="logo">
+                <div class="options">
+                    <a href="#" class="opt-bar">Nachrichten</a>
+                </div>
+            </div>
+            
+            <div class="header-middle">
+                <!-- Navigation -->
+                <nav class="nav">
+                    <a href="#">Aktuelles</a> |
+                    <a href="#">VV</a> |
+                    <a href="#">Stundenplan</a> |
+                    <a href="#">Veranstaltungen</a> |
+                    <a href="#">Prüfungen</a> |
+                    <a href="#">Service</a> |
+                    <a href="#">Bewerbung</a> |
+                    <a href="#">Hilfe</a> |
+                </nav>
+                <!-- Content -->
+                <main class="content">
+                    <h1>Herzlich willkommen ,[placeholder] !</h1>
+                    <h2>Aktivitäten für den: {{ now.strftime("%d.%m.%Y")}}</h2>
+                    <h2>Heutige Veranstaltungen:</h2>
+                    <p class="over-grey-header"><img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Stundenplan</p>
+                    <p class="header-grey-box">
+                        Für heute sind keine Termine angesetzt!
+                    </p>
+                    <h2>Eingegangene Nachrichten:
+                    </h2>
+                    <p class="over-grey-header"><img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Stundenplan</p>
+                    <p class="header-grey-box">
+                        Für heute sind keine Termine angesetzt!
+                    </p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Datum</td> 
+                                <td>Uhrzeit</td>
+                                <td>Absender</td>
+                                <td>Betreff</td>
+                                <td>Aktion</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>17.11.2025</td>
+                            <td>9:40</td>
+                            <td>System</td>
+                            <td>WiSe 2025/2026: Prüfungsanmeldezeitraum beginnt / registration for examinations started</td>
+                            <td>Löschen</td>
+                        </tr>
+                        <tr>
+                            <td>28.10.2025</td>
+                            <td>13:46</td>
+                            <td>System</td>
+                            <td>Verschiebung Update - TUCaN 3. – 7.11.2025 erreichbar / available</td>
+                            <td>Löschen</td>
+                        </tr>
+                        <tr>
+                            <td>22.10.2025</td>
+                            <td>11:39</td>
+                            <td>System</td>
+                            <td>28.10.2025: TUCaN Update – verlängerte Wartungszeit / Korrektur November - Termin</td>
+                            <td>Löschen</td>
+                        </tr>
+                        <tr>
+                            <td>26.09.2025</td>
+                            <td>14:07</td>
+                            <td>noreply - Studierendenservice</td>
+                            <td>Digitaler Studierendenausweis - Postversand Papierausweis eingestellt</td>
+                            <td>Löschen</td>
+                        </tr>
+                         <tr>
+                            <td>21.08.2025</td>
+                            <td>13:46</td>
+                            <td>noreply - Beitragsmanagement</td>
+                            <td>Eilt - Unvollständiger Semesterbeitrag / Urgent - Incomplete semester contribution</td>
+                            <td>Löschen</td>
+                        </tr>
+                        <tr>
+                            <td>11.06.2025</td>
+                            <td>16:52</td>
+                            <td>noreply - Studierendenservice</td>
+                            <td>Der Studierendenausweis – ab jetzt auch digital!</td>
+                            <td>Löschen</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    
+                </main>
+            </div>
+            <div class="header-right">
+                <img src ="{{ url_for('static', filename='tu-logo.gif') }}" alt="TU Darmstadt logo" class="tu-logo">
+            </div>
+        </header>    
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="#">
+            <img src ="{{ url_for('static', filename='icons/impressum.png') }}" alt ="">Impressum</a>
+        <a href="#">
+            <img src ="{{ url_for('static', filename='icons/kontakt.png') }}" alt ="">Kontakt</a>
+        <a href="#">
+            <img src ="{{ url_for('static', filename='icons/drucken.png') }}" alt ="">Drucken</a>
+    </footer>
+</div>
+
+</body>
+</html>

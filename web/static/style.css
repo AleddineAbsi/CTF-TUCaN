@@ -36,9 +36,11 @@ body {
     border-bottom: 1px solid black;
 }
 
-.login-form {
+.top-bar{
     text-align: right;
 }
+
+/*login*/
 
 .login-form input {
     width: 120px;
@@ -58,6 +60,17 @@ body {
     font-size: 12px;
 }
 
+/* logged in */
+
+.top-bar-label{
+    font-weight: bold;
+}
+
+.session-info{
+    margin: 5px;
+}
+
+
 /* Header */
 
 .header {
@@ -69,6 +82,24 @@ body {
     font-size: 28px;
     color: #9bb000;
     font-weight: bold;
+}
+
+.options{
+    border-top: 2px solid #B1BD00;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #E5E5E5 ;
+}
+
+.options a{
+    padding: 4px;
+    padding-left: 8px;
+    background: #F4F5D0;
+    border: #FFFFFF solid 1px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+
 }
 
 .tu-logo {
@@ -110,10 +141,50 @@ body {
     font-size: 18px;
 }
 
+.content h2 {
+    color: #B1BD00;
+    font-size: 15px;
+    margin-bottom: auto;
+    padding: 3px;
+}
+
+.over-grey-header{
+    border-top: 1px solid #E8E8E8;
+    text-align: right;
+    margin-bottom: auto;
+    margin-top: auto;
+    padding: 3px;
+    text-decoration: underline;
+}
+.header-grey-box{
+    margin-top: auto;
+    padding: 3px;
+    background:#E8E8E8;
+    font-weight: bold;
+}
+
 .box {
     border: 1px solid #999;
     background: #f8f8ee;
     padding: 10px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+thead{
+    background: #E8E8E8;
+    font-weight: bold;
+}
+
+tr{
+    border-top: 1px solid #E8E8E8;
+}
+
+td{
+    padding: 5px;
 }
 
 /* Footer */

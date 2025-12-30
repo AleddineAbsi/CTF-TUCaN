@@ -11,17 +11,17 @@
         <!-- Top login bar -->
         <div>
             <div class="top-bar">
-                <form class="login-form">
-                    <label>TU-ID:</label>
-                    <input type="text">
-                    <label>Passwort:</label>
-                    <input type="password">
-                    <button type="button" class="btn-text">
-                        <img src ="{{ url_for('static', filename='icons/anmelden.png') }}" alt ="" class="icon-lock">Anmelden
-                    </button>
-                    <a>|</a>
-                    <a href="#">English</a>
-                </form>
+                <span class="top-bar-label">Name:</span>
+                <span class="session-info">placeholder</span>
+                <span class="top-bar-label">am:</span>
+                <span class="session-info">{{ now.strftime("%d.%m.%Y")}}</span>
+                <span class="top-bar-label">um:</span>
+                <span class="session-info">{{ now.strftime("%H:%M")}} Uhr</span>
+                <button type="button" class="btn-text">
+                    <img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Abmelden
+                </button>
+                <a>|</a>
+                <a href="{{ url_for('login') }}">English</a>
             </div>
 
             <div class="top-bar-2"></div>
@@ -31,6 +31,12 @@
         <header class="header">
             <div class="header-left">
                 <img src ="{{ url_for('static', filename='logo.gif') }}" alt="TU Darmstadt logo" class="logo">
+                <div class="options">
+                    <a href="#" class="opt-bar">Option 1</a>
+                    <a href="#" class="opt-bar">Option 2</a>
+                    <a href="#" class="opt-bar">Option 3</a>
+                    <a href="#" class="opt-bar">Option 4</a>
+                </div>
             </div>
             
             <div class="header-middle">
