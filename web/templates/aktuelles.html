@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>TUCaN</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 <div class="outer-invisible-box">
@@ -39,14 +39,14 @@
             <div class="header-middle">
                 <!-- Navigation -->
                 <nav class="nav">
-                    <a href="#">Aktuelles</a> |
-                    <a href="#">VV</a> |
-                    <a href="#">Stundenplan</a> |
-                    <a href="#">Veranstaltungen</a> |
-                    <a href="#">Prüfungen</a> |
-                    <a href="#">Service</a> |
-                    <a href="#">Bewerbung</a> |
-                    <a href="#">Hilfe</a> |
+                    <a class="used-nav" href="{{ url_for('aktuelles') }}" style="color: #B1BD00;">Aktuelles</a> |
+                    <a class="not-used-nav">VV</a> |
+                    <a class="not-used-nav">Stundenplan</a> |
+                    <a class="not-used-nav">Veranstaltungen</a> |
+                    <a class="used-nav" href="{{ url_for('prufungen') }}">Prüfungen</a> |
+                    <a class="used-nav" href="{{ url_for('service') }}">Service</a> |
+                    <a class="not-used-nav" >Bewerbung</a> |
+                    <a class="used-nav" href="{{ url_for('hilfe') }}">Hilfe</a> |
                 </nav>
                 <!-- Content -->
                 <main class="content">
@@ -136,6 +136,6 @@
             <img src ="{{ url_for('static', filename='icons/drucken.png') }}" alt ="">Drucken</a>
     </footer>
 </div>
-
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

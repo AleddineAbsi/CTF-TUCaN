@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>TUCaN</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="outer-invisible-box">
+    <div class = "main-part">
+        <!-- Top login bar -->
+        <div>
+            <div class="top-bar">
+                <span class="top-bar-label">Name:</span>
+                <span class="session-info">placeholder</span>
+                <span class="top-bar-label">am:</span>
+                <span class="session-info">{{ now.strftime("%d.%m.%Y")}}</span>
+                <span class="top-bar-label">um:</span>
+                <span class="session-info">{{ now.strftime("%H:%M")}} Uhr</span>
+                <button type="button" class="btn-text">
+                    <img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Abmelden
+                </button>
+                <a>|</a>
+                <a href="{{ url_for('login') }}">English</a>
+            </div>
+
+            <div class="top-bar-2"></div>
+            <div class ="separator-line"></div>
+        </div>
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <img src ="{{ url_for('static', filename='logo.gif') }}" alt="TU Darmstadt logo" class="logo">
+                <div class="options">
+                    <a href="#" class="opt-bar">Meine Prüfungen</a>
+                    <a href="{{ url_for('prufungen', section='prufungsplan') }}" class="opt-bar">Mein Prüfungsplan</a>
+                    <a href="{{ url_for('prufungen', section='semesterergebnisse') }}" class="opt-bar" style="background-color: #FFFFFF;">Semesterergebnisse</a>
+                    <a href="{{ url_for('prufungen', section='semesterergebnisse',subsection='modulergebnisse') }}" class="opt-bar sub-opt-bar">Modulergebnisse</a>
+                    <a href="#" class="opt-bar sub-opt-bar">Prüfungsergebnisse</a>
+                    <a href="#" class="opt-bar">Leistungsspiegel</a>
+                </div>
+            </div>
+            
+            <div class="header-middle">
+                <!-- Navigation -->
+                <nav class="nav">
+                    <a class="used-nav" href="{{ url_for('aktuelles') }}">Aktuelles</a> |
+                    <a class="not-used-nav">VV</a> |
+                    <a class="not-used-nav">Stundenplan</a> |
+                    <a class="not-used-nav">Veranstaltungen</a> |
+                    <a class="used-nav" href="{{ url_for('prufungen') }}" style="color: #B1BD00;">Prüfungen</a> |
+                    <a class="used-nav" href="{{ url_for('service') }}">Service</a> |
+                    <a class="not-used-nav" >Bewerbung</a> |
+                    <a class="used-nav" href="{{ url_for('hilfe') }}">Hilfe</a> |
+                </nav>
+                <!-- Content -->
+                <main class="content">
+                    <h1>Modulnoten WiSe 2025/26 für [placeholder]</h1>
+                    <p class="header-grey-box" style ="margin-bottom:auto;">
+                        Wählen Sie ein Semester
+                    </p>
+                    <div style="padding:8px; padding-left: 20%;"><label for="choice">Semester:</label>
+                        <select id="choice" name="choice">
+                        <option value="">Option 1</option>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                        </select>
+                        <button type ="button" class="btn-text"><img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Aktualisieren</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Nr.</td> 
+                                <td>Kursname</td>
+                                <td>Endnote</td>
+                                <td>Credits</td>
+                                <td>Status</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>04-10-0119/de</td>
+                            <td>Mathematik II für Informatik</td>
+                            <td>2,0</td>
+                            <td>9,0</td>
+                            <td>bestanden</td>
+                        </tr>
+                        <thead>
+                            <tr>
+                                <td>Semester-GPA</td>
+                                <td></td>
+                                <td>2,0</td>
+                                <td>9,0</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        </tbody>
+                    </table>
+                </main>
+            </div>
+            <div class="header-right">
+                <img src ="{{ url_for('static', filename='tu-logo.gif') }}" alt="TU Darmstadt logo" class="tu-logo">
+            </div>
+        </header>    
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="#">
+            <img src ="{{ url_for('static', filename='icons/impressum.png') }}" alt ="">Impressum</a>
+        <a href="#">
+            <img src ="{{ url_for('static', filename='icons/kontakt.png') }}" alt ="">Kontakt</a>
+        <a href="#">
+            <img src ="{{ url_for('static', filename='icons/drucken.png') }}" alt ="">Drucken</a>
+    </footer>
+</div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

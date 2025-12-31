@@ -32,49 +32,31 @@
             <div class="header-left">
                 <img src ="{{ url_for('static', filename='logo.gif') }}" alt="TU Darmstadt logo" class="logo">
                 <div class="options">
-                    <a href="#" class="opt-bar">Option 1</a>
-                    <a href="#" class="opt-bar">Option 2</a>
-                    <a href="#" class="opt-bar">Option 3</a>
-                    <a href="#" class="opt-bar">Option 4</a>
+                    <a href="#" class="opt-bar">Meine Prüfungen</a>
+                    <a href="{{ url_for('prufungen', section='prufungsplan') }}" class="opt-bar" style="background-color: #FFFFFF;">Mein Prüfungsplan</a>
+                    <a href="#" class="opt-bar sub-opt-bar">Wichtige Hinweise</a>
+                    <a href="{{ url_for('prufungen', section='semesterergebnisse') }}" class="opt-bar">Semesterergebnisse</a>
+                    <a href="#" class="opt-bar">Leistungsspiegel</a>
                 </div>
             </div>
             
             <div class="header-middle">
                 <!-- Navigation -->
                 <nav class="nav">
-                    <a href="#">Startseite</a> |
-                    <a href="#">Vorlesungsverzeichnis (VV)</a> |
-                    <a href="#">TUCaN-Account</a> |
-                    <a href="#">Hilfe</a> |
+                    <a class="used-nav" href="{{ url_for('aktuelles') }}">Aktuelles</a> |
+                    <a class="not-used-nav">VV</a> |
+                    <a class="not-used-nav">Stundenplan</a> |
+                    <a class="not-used-nav">Veranstaltungen</a> |
+                    <a class="used-nav" href="{{ url_for('prufungen') }}" style="color: #B1BD00;">Prüfungen</a> |
+                    <a class="used-nav" href="{{ url_for('service') }}">Service</a> |
+                    <a class="not-used-nav" >Bewerbung</a> |
+                    <a class="used-nav" href="{{ url_for('hilfe') }}">Hilfe</a> |
                 </nav>
                 <!-- Content -->
                 <main class="content">
-                    <h1>Herzlich willkommen bei TUCaN, dem Campus-Management-System der TU Darmstadt!</h1>
-
-                    <p>
-                        Studierende, Lehrende, Stellvertretungen und Mitarbeitende der TU Darmstadt
-                        melden sich mit ihrer TU-ID an, um das System zu nutzen.
-                    </p>
-
-                    <ul>
-                        <li><a href="#">FAQ für Studierende</a></li>
-                        <li><a href="#">FAQ für Lehrende</a></li>
-                    </ul>
-
-                    <h3>Bewerber:innen und Gasthörer:innen</h3>
-                    <p>
-                        legen sich zunächst ein TUCaN-Account an, um ihre Zugangsdaten zu erhalten.
-                    </p>
-
-                    <div class="box">
-                        <strong>Aktuelles:</strong><br><br>
-                        Fristen zur Prüfungsanmeldung für das Wintersemester 2025/26 beachten.
-                    </div>
-
-                    <p class="links">
-                        → <a href="#">TUCaN Wartungszeit</a><br>
-                        → <a href="#">Hinweise zum Datenschutz</a>
-                    </p>
+                    <h1>Prüfungsplan</h1>
+                    <p>Für keines Ihrer Studien ist ein Prüfungsplan vorgesehen.</p>
+                    
                 </main>
             </div>
             <div class="header-right">

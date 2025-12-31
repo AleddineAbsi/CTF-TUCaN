@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>TUCaN</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="outer-invisible-box">
+    <div class = "main-part">
+        <!-- Top login bar -->
+        <div>
+            <div class="top-bar">
+                <span class="top-bar-label">Name:</span>
+                <span class="session-info">placeholder</span>
+                <span class="top-bar-label">am:</span>
+                <span class="session-info">{{ now.strftime("%d.%m.%Y")}}</span>
+                <span class="top-bar-label">um:</span>
+                <span class="session-info">{{ now.strftime("%H:%M")}} Uhr</span>
+                <button type="button" class="btn-text">
+                    <img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Abmelden
+                </button>
+                <a>|</a>
+                <a href="{{ url_for('login') }}">English</a>
+            </div>
+
+            <div class="top-bar-2"></div>
+            <div class ="separator-line"></div>
+        </div>
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <img src ="{{ url_for('static', filename='logo.gif') }}" alt="TU Darmstadt logo" class="logo">
+                <div class="options">
+                    <a href="#" class="opt-bar" >Meine Prüfungen</a>
+                    <a href="{{ url_for('prufungen', section='prufungsplan') }}" class="opt-bar">Mein Prüfungsplan</a>
+                    <a href="{{ url_for('prufungen', section='semesterergebnisse') }}" class="opt-bar">Semesterergebnisse</a>
+                    <a href="#" class="opt-bar">Leistungsspiegel</a>
+                </div>
+            </div>
+            
+            <div class="header-middle">
+                <!-- Navigation -->
+                <nav class="nav">
+                    <a class="used-nav" href="{{ url_for('aktuelles') }}">Aktuelles</a> |
+                    <a class="not-used-nav">VV</a> |
+                    <a class="not-used-nav">Stundenplan</a> |
+                    <a class="not-used-nav">Veranstaltungen</a> |
+                    <a class="used-nav" href="{{ url_for('prufungen') }}" style="color: #B1BD00;">Prüfungen</a> |
+                    <a class="used-nav" href="{{ url_for('service') }}">Service</a> |
+                    <a class="not-used-nav" >Bewerbung</a> |
+                    <a class="used-nav" href="{{ url_for('hilfe') }}">Hilfe</a> |
+                </nav>
+                <!-- Content -->
+                <main class="content">
+                    <h1>Das Menü Prüfungen</h1>
+                    <p>In diesem Bereich können Sie sich zu Prüfungen an- und abmelden und Ihre Prüfungsergebnisse einsehen.</p>
+                    <p><strong>Benötigen Sie Hilfe im Umgang mit TUCaN? Hier finden Sie zahlreiche Anleitungen und FAQs.</strong></p>
+
+                <h2>Meine Prüfungen</h2>
+                <p>Im Untermenü Meine Prüfungen sehen Sie die Prüfungen, zu denen Sie angemeldet sind. Hier können Sie sich zu Prüfungen anmelden, von Prüfungen abmelden oder den Prüfungstermin wechseln.</p>
+                <p><strong>Achtung!</strong> Abschlussarbeiten (Bachelor-Thesis oder ähnliches) melden Sie im Studienbüro an.</p>
+                <h2>Semesterergebnisse</h2>
+                <p>Im Untermenü Semesterergebnisse finden Sie Ihre Noten.</p>
+                <h2>Leistungsspiegel</h2>
+                <p>Das Untermenü Leistungsspiegel bietet Ihnen die Möglichkeit, Ihre persönliche Leistungsübersicht auszudrucken.</p>
+                <div class="box-without-border">
+                    <h1>Wichtige Informationen zur Prüfungsanmeldung</h1>
+                    <p><strong>Anmeldefristen für Prüfungen</strong></p>
+                    <p>Die Anmeldefristen für Prüfungen können von den Fachbereichen individuell festgelegt werden. Die Frist der jeweiligen Anmeldephase können Sie mit Klick auf Prüfungsdetails jederzeit einsehen.</p>
+                    <p>Wie in den § 14 der APB der TU Darmstadt beschrieben, beginnt der Prüfungsanmeldezeitraum in der Regel im</p>
+                    <ul>
+                        <li>Sommersemester: Anfang Juni</li>
+                        <li>Wintersemester: Mitte November</li>
+                    </ul>
+                    <p>Sommersemester: Anfang Juni Die Teilnahme an einer Prüfung ohne rechtskräftige Anmeldung ist ausgeschlossen!</p>
+                    <p><strong>Abmeldefristen für Prüfungen</strong></p>
+                    <p>Abmeldungen von Prüfungen ohne Angabe von Gründen sind gemäß § 15 APB in der Regel bis 7 Tage vor Prüfungstermin möglich. In Ausnahmefällen kann diese Rücktrittsfrist vorgezogen werden; bitte beachten Sie mögliche Abweichungen!</p>
+                    <p>Die Frist der Abmeldephase können Sie mit Klick auf die Prüfungsdetails jederzeit einsehen.</p>
+                    <p>Beispiel: Findet die Prüfung am Dienstag, 14. Februar statt, können Sie sich bis Montag, 6. Februar, 23:59:59 Uhr abmelden</p>
+                    <p>Die gesetzlichen Grundlagen zu Prüfungen finden Sie in den Allgemeinen Prüfungsbestimmungen.</p>
+                    <p><strong>Räume</strong></p>
+                    <p>Sollten Sie in TUCaN nicht sehen, in welchem Raum die Prüfung stattfindet, wenden Sie sich bitte an Ihr Studienbüro.</p>
+                </div>
+                    
+                </main>
+            </div>
+            <div class="header-right">
+                <img src ="{{ url_for('static', filename='tu-logo.gif') }}" alt="TU Darmstadt logo" class="tu-logo">
+            </div>
+        </header>    
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="#">
+            <img src ="{{ url_for('static', filename='icons/impressum.png') }}" alt ="">Impressum</a>
+        <a href="#">
+            <img src ="{{ url_for('static', filename='icons/kontakt.png') }}" alt ="">Kontakt</a>
+        <a href="#">
+            <img src ="{{ url_for('static', filename='icons/drucken.png') }}" alt ="">Drucken</a>
+    </footer>
+</div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

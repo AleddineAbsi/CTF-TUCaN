@@ -60,7 +60,7 @@ body {
     font-size: 12px;
 }
 
-/* logged in */
+/* Logged in */
 
 .top-bar-label{
     font-weight: bold;
@@ -91,6 +91,8 @@ body {
     border-bottom: 1px solid #E5E5E5 ;
 }
 
+
+
 .options a{
     padding: 4px;
     padding-left: 8px;
@@ -100,6 +102,12 @@ body {
     text-decoration: none;
     color: #000;
 
+}
+
+.options .sub-opt-bar{
+    background-color: #FFFFFF ;
+    padding-left: 20px;
+    border-top: solid 1px #E2E2E2;
 }
 
 .tu-logo {
@@ -128,6 +136,10 @@ body {
     margin-right: 5px;
     margin-left: 5px;
     font-weight: bold;
+}
+
+nav .not-used-nav{
+    color: #bdbdbd;
 }
 
 /* Content */
@@ -163,15 +175,19 @@ body {
     font-weight: bold;
 }
 
-.box {
+.box-with-border {
     border: 1px solid #999;
-    background: #f8f8ee;
+    background: #F8F9ED;
+    padding: 10px;
+}
+
+.box-without-border{
+    background: #F8F9ED;
     padding: 10px;
 }
 
 table{
     border-collapse: collapse;
-    width: 100%;
 }
 
 thead{
