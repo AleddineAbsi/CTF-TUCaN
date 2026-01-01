@@ -45,5 +45,15 @@ def service():
 def hilfe():
     return render_template("hilfe.html",now=now)
 
+@app.route("/admin")
+@app.route("/admin/<string:section>")
+def admin(section=None):
+    if section is None:
+        return render_template("admin.html",now=now)
+    if section == "systemstatus":
+        return render_template("systemstatus.html",now=now)
+    abort(404)
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000,debug=True)

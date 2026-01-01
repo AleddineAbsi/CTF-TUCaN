@@ -3,7 +3,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
     color: #000;
-    background: #F1F1F1;
+    background: #5c5c5c;
 }
 .main-part{
     background: #FFFFFF;
@@ -23,10 +23,13 @@ body {
 
 .top-bar {
     padding: 2px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .top-bar-2 {
-    background: #B1BD00;
+    background: #5e6322;
     height: 15px;
     clear:both;
 }
@@ -36,27 +39,30 @@ body {
     border-bottom: 1px solid black;
 }
 
-.top-bar{
-    text-align: right;
-}
-
 /*login*/
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
 
 .login-form input {
     width: 120px;
     font-size: 13px;
+    margin: 5px;
 }
 
 .login-form label{
-    margin-left: 15px;
+
 }
 
 .login-form input{
-    border: 1px solid #b1bd00;
+    border: 1px solid #5E6322;
 }
 
 .login-form button {
-    font-size: 12px;
+
 }
 
 /* Logged in */
@@ -120,6 +126,9 @@ body {
 
 .header-middle{
     text-align: left;
+    margin: 0 auto; 
+    padding: 0 16px; 
+    min-width: 70%; 
 }
 
 
@@ -127,6 +136,7 @@ body {
 
 .nav {
     padding: 5px 20px;
+    text-align: center;
 }
 
 .nav a {
@@ -148,12 +158,12 @@ nav .not-used-nav{
 }
 
 .content h1 {
-    color: #B1BD00;
+    color: #5E6322;
     font-size: 18px;
 }
 
 .content h2 {
-    color: #B1BD00;
+    color: #5E6322;
     font-size: 15px;
     margin-bottom: auto;
     padding: 3px;

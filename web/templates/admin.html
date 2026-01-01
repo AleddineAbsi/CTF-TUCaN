@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>TUCaN</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/adminstyle.css') }}">
+</head>
+<body>
+<div class="outer-invisible-box">
+    <div class = "main-part">
+        <!-- Top login bar -->
+        <div>
+            <div class="top-bar">
+                <img src ="{{ url_for('static', filename='logoadmin.png') }}" alt="TU Darmstadt logo" class="logo">
+                <img src ="{{ url_for('static', filename='tu-logo.gif') }}" alt="TU Darmstadt logo" class="tu-logo">
+            </div>
+
+            <div class="top-bar-2"></div>
+            <div class ="separator-line"></div>
+        </div>
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left"></div>
+            <div class="header-middle">
+                <!-- Navigation -->
+                <nav class="nav">
+                    <a href="{{ url_for('admin', section='systemstatus') }}" >Systemstatus</a> |
+                    <a href="# ">Modulverwaltung</a> |
+                    <a href="#">Dashboard</a> |
+                    <a href="#">Dokumentation</a> |
+                </nav>
+                <!-- Content -->
+                <main class="content">
+                    <h1>Herzlich willkommen im Administrationsportal TUCadmiN des Campus-Management-Systems!</h1>
+                    <form class="login-form">
+                        <label>TU-ID:</label>
+                        <input type="text">
+                        <label>Passwort:</label>
+                        <input type="password">
+                        <button type="button" class="btn-text">
+                            <img src ="{{ url_for('static', filename='icons/anmelden.png') }}" alt ="" class="icon-lock">Anmelden
+                        </button>
+                    </form>
+                    
+                </main>
+            </div>
+            <div class="header-right"></div>
+        </header>    
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="#">
+            <img src ="{{ url_for('static', filename='icons/impressum.png') }}" alt ="">Impressum</a>
+        <a href="#">
+            <img src ="{{ url_for('static', filename='icons/kontakt.png') }}" alt ="">Kontakt</a>
+        <a href="#">
+            <img src ="{{ url_for('static', filename='icons/drucken.png') }}" alt ="">Drucken</a>
+    </footer>
+</div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
