@@ -1,11 +1,15 @@
 from flask import Flask, render_template, abort
 from datetime import datetime
-
+from db import close_db
+from models import init_db, seed_db
 
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 now=datetime.now()
 
+with app.app_context():
+    init_db()
+    seed_db()
 
 @app.route("/")
 def index():
@@ -53,6 +57,10 @@ def admin(section=None):
     if section == "systemstatus":
         return render_template("systemstatus.html",now=now)
     abort(404)
+
+@app.teardown_appcontext
+def teardown_db(exception):
+    close_db()
 
 
 if __name__ == "__main__":
