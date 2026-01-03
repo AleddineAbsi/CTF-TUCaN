@@ -1,10 +1,10 @@
 from flask import Flask, render_template, abort
 from datetime import datetime
 from db import close_db
-from auth import login
+from auth import login,logout,admin_login
 from utils import login_required
-from auth import logout
 from grades import grades_by_id
+from admin import get_backup_db,get_system_info
 
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -13,6 +13,9 @@ app.secret_key="dev-secret-key"
 app.add_url_rule("/login", view_func=login, methods=["GET", "POST"])
 app.add_url_rule("/logout", view_func=logout)
 app.add_url_rule("/prufungen/semesterergebnisse/modulergebnisse",view_func=grades_by_id)
+app.add_url_rule("/admin",view_func=admin_login,methods=["GET", "POST"])
+app.add_url_rule("/admin/backupdb",view_func=get_backup_db)
+app.add_url_rule("/admin/systemstatus",view_func=get_system_info)
 
 
 @app.context_processor
@@ -70,6 +73,9 @@ def admin(section=None):
     if section == "systemstatus":
         return render_template("systemstatus.html")
     abort(404)
+
+
+
 
 @app.route("/debug-session")
 def debug_session():

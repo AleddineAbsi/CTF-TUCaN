@@ -12,6 +12,9 @@
         <div>
             <div class="top-bar">
                 <img src ="{{ url_for('static', filename='logoadmin.png') }}" alt="TU Darmstadt logo" class="logo">
+                <a href="/logout" class="btn-text">
+                    <img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Abmelden
+                </a>
                 <img src ="{{ url_for('static', filename='tu-logo.gif') }}" alt="TU Darmstadt logo" class="tu-logo">
             </div>
 
@@ -24,15 +27,30 @@
             <div class="header-middle">
                 <!-- Navigation -->
                 <nav class="nav">
-                    <a href="{{ url_for('admin', section='systemstatus') }}" style="color: #5E6322;" >Systemstatus</a> |
-                    <a href="# ">Modulverwaltung</a> |
-                    <a href="#">Dashboard</a> |
-                    <a href="#">Dokumentation</a> |
+                    <a href="{{ url_for('admin', section='systemstatus') }}" style="color: #5E6322;" >System / Server Information</a> |
+                    <a class="not-used-nav">Modulverwaltung</a> |
+                    <a href="{{ url_for('admin', section='backupdb') }}">Backup DB</a> |
+                    <a class="not-used-nav">Dashboard</a> |
+                    <a class="not-used-nav">Dokumentation</a> |
                 </nav>
                 <!-- Content -->
                 <main class="content">
                     <h1>Herzlich willkommen im Administrationsportal TUCadmiN des Campus-Management-Systems!</h1>
                     <p>server infos</p>
+                    <h2>System Information</h2>
+
+                    <ul>
+                        <li><strong>Hostname:</strong> {{ sysinfo.hostname }}</li>
+                        <li><strong>OS:</strong> {{ sysinfo.os }} {{ sysinfo.os_version }}</li>
+                        <li><strong>Architecture:</strong> {{ sysinfo.architecture }}</li>
+                        <li><strong>Python:</strong> {{ sysinfo.python_version }}</li>
+                        <li><strong>Working directory:</strong> {{ sysinfo.cwd }}</li>
+                    </ul>
+
+                    <p class="note">
+                        Server running continuously since last maintenance window.
+                    </p>
+
                     
                 </main>
             </div>

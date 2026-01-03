@@ -21,4 +21,14 @@ services:
   vuln-linux:
     build: ./vuln-linux
     container_name: tuportal-vuln-linux
+    ports:
+      - "127.0.0.1:2222:22"
     tty: true
+    volumes:
+      - ./:/opt/tucan
+
+
+
+networks:
+  internal_net:
+    driver: bridge

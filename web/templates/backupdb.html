@@ -12,6 +12,9 @@
         <div>
             <div class="top-bar">
                 <img src ="{{ url_for('static', filename='logoadmin.png') }}" alt="TU Darmstadt logo" class="logo">
+                <a href="/logout" class="btn-text">
+                    <img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Abmelden
+                </a>
                 <img src ="{{ url_for('static', filename='tu-logo.gif') }}" alt="TU Darmstadt logo" class="tu-logo">
             </div>
 
@@ -26,25 +29,34 @@
                 <nav class="nav">
                     <a href="{{ url_for('admin', section='systemstatus') }}" >System / Server Information</a> |
                     <a class="not-used-nav">Modulverwaltung</a> |
-                    <a href="{{ url_for('admin', section='backupdb') }}">Backup DB</a> |
+                    <a href="{{ url_for('admin', section='backupdb') }}" style="color: #5E6322;">Backup DB</a> |
                     <a class="not-used-nav">Dashboard</a> |
                     <a class="not-used-nav">Dokumentation</a> |
                 </nav>
                 <!-- Content -->
                 <main class="content">
-                    <h1>Herzlich willkommen im Administrationsportal TUCadmiN des Campus-Management-Systems!</h1>
-                    {% if error %}
-                        <p style="color:red; text-align: center;">{{ error }}</p>
-                    {% endif %}
-                    <form class="login-form" method="post" action="/admin">
-                        <label>TU-ID:</label>
-                        <input type="text" name="username">
-                        <label>Passwort:</label>
-                        <input type="password" name="password">
-                        <button type="submit" class="btn-text">
-                            <img src ="{{ url_for('static', filename='icons/anmelden.png') }}" alt ="" class="icon-lock">Anmelden
-                        </button>
-                    </form>
+                    <h1 style="text-align: center;">Welcome to the database backup interface.<br>
+                        This view is intended for internal audit and recovery purposes only.</h1>
+                    <table style="margin:auto; width :80%; margin-top: 40px;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in users %}
+                            <tr>
+                                <td>{{ user.id }}</td>
+                                <td>{{ user.username }}</td>
+                                <td><code>{{ user.password }}</code></td>
+                                <td>{{ user.role }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>   
                     
                 </main>
             </div>

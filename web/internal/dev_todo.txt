@@ -1,0 +1,15 @@
+TU-Portal : Internal TODO List
+Maintainer note : do not publish
+
+- adjust CSS spacing on login page (mobile view still broken)
+- refactor legacy auth logic (email fallback still active)
+- update semester labels for WS/SS display
+- clean up unused JS functions in dashboard
+- check ECTS calculation rounding
+- review session timeout handling
+- remove old admin website (admin.html)
+- verify permissions on backup directory
+- disable legacy admin account
+- remove admin1 test user
+- remove commented-out SQL queries
+- update TU Darmstadt logo to new minimalist design
