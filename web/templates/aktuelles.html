@@ -12,14 +12,14 @@
         <div>
             <div class="top-bar">
                 <span class="top-bar-label">Name:</span>
-                <span class="session-info">placeholder</span>
+                <span class="session-info">{{session["display_name"]}}</span>
                 <span class="top-bar-label">am:</span>
                 <span class="session-info">{{ now.strftime("%d.%m.%Y")}}</span>
                 <span class="top-bar-label">um:</span>
                 <span class="session-info">{{ now.strftime("%H:%M")}} Uhr</span>
-                <button type="button" class="btn-text">
+                <a href="/logout" class="btn-text">
                     <img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Abmelden
-                </button>
+                </a>
                 <a>|</a>
                 <a href="{{ url_for('login') }}">English</a>
             </div>
@@ -50,7 +50,7 @@
                 </nav>
                 <!-- Content -->
                 <main class="content">
-                    <h1>Herzlich willkommen ,[placeholder] !</h1>
+                    <h1>Herzlich willkommen ,{{session["display_name"]}}!</h1>
                     <h2>Aktivitäten für den: {{ now.strftime("%d.%m.%Y")}}</h2>
                     <h2>Heutige Veranstaltungen:</h2>
                     <p class="over-grey-header"><img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Stundenplan</p>

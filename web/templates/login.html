@@ -11,12 +11,12 @@
         <!-- Top login bar -->
         <div>
             <div class="top-bar">
-                <form class="login-form">
+                <form class="login-form" method="post" action="/login">
                     <label>TU-ID:</label>
-                    <input type="text">
+                    <input type="text" name="username">
                     <label>Passwort:</label>
-                    <input type="password">
-                    <button type="button" class="btn-text">
+                    <input type="password" name="password">
+                    <button type="submit" class="btn-text">
                         <img src ="{{ url_for('static', filename='icons/anmelden.png') }}" alt ="" class="icon-lock">Anmelden
                     </button>
                     <a>|</a>

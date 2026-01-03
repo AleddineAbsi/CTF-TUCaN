@@ -1,62 +1,81 @@
 from flask import Flask, render_template, abort
 from datetime import datetime
 from db import close_db
-from models import init_db, seed_db
+from auth import login
+from utils import login_required
+from auth import logout
+from grades import grades_by_id
 
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 now=datetime.now()
+app.secret_key="dev-secret-key"
+app.add_url_rule("/login", view_func=login, methods=["GET", "POST"])
+app.add_url_rule("/logout", view_func=logout)
+app.add_url_rule("/prufungen/semesterergebnisse/modulergebnisse",view_func=grades_by_id)
 
-with app.app_context():
-    init_db()
-    seed_db()
+
+@app.context_processor
+def inject_now():
+    return {
+        "now": datetime.now()
+    }
 
 @app.route("/")
 def index():
     return render_template("login.html")
 
-@app.route("/login")
-def login():
-    return render_template("login.html")
-
 @app.route("/aktuelles")
+@login_required
 def aktuelles():
-    return render_template("aktuelles.html",now=now)
+    return render_template("aktuelles.html")
+app.add_url_rule("/aktuelles", view_func=aktuelles)
+
 
 @app.route("/about")
+@login_required
 def about():
     return "About TU-Portal"
 
 @app.route("/prufungen")
 @app.route("/prufungen/<string:section>")
 @app.route("/prufungen/<string:section>/<string:subsection>")
+@login_required
 def prufungen(section=None, subsection=None):
     if section is None:
-        return render_template("prufungen.html", now=now)
+        return render_template("prufungen.html")
     if section == "prufungsplan" and subsection is None:
-        return render_template("prufungsplan.html", now=now)
+        return render_template("prufungsplan.html")
     if section == "semesterergebnisse" and subsection is None:
-        return render_template("semesterergebnisse.html", now=now)
+        return render_template("semesterergebnisse.html")
     if section == "semesterergebnisse" and subsection == "modulergebnisse":
-        return render_template("modulergebnisse.html", now=now)
+        return render_template("modulergebnisse.html")
     abort(404)
 
 @app.route("/service")
+@login_required
 def service():
-    return render_template("service.html",now=now)
+    return render_template("service.html")
 
 @app.route("/hilfe")
+@login_required
 def hilfe():
-    return render_template("hilfe.html",now=now)
+    return render_template("hilfe.html")
 
 @app.route("/admin")
 @app.route("/admin/<string:section>")
 def admin(section=None):
     if section is None:
-        return render_template("admin.html",now=now)
+        return render_template("admin.html")
     if section == "systemstatus":
-        return render_template("systemstatus.html",now=now)
+        return render_template("systemstatus.html")
     abort(404)
+
+@app.route("/debug-session")
+def debug_session():
+    #session not defined yet
+    return str(dict(session))
+
 
 @app.teardown_appcontext
 def teardown_db(exception):

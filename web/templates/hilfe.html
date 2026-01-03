@@ -12,14 +12,14 @@
         <div>
             <div class="top-bar">
                 <span class="top-bar-label">Name:</span>
-                <span class="session-info">placeholder</span>
+                <span class="session-info">{{session["display_name"]}}</span>
                 <span class="top-bar-label">am:</span>
                 <span class="session-info">{{ now.strftime("%d.%m.%Y")}}</span>
                 <span class="top-bar-label">um:</span>
                 <span class="session-info">{{ now.strftime("%H:%M")}} Uhr</span>
-                <button type="button" class="btn-text">
+                <a href="/logout" class="btn-text">
                     <img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Abmelden
-                </button>
+                </a>
                 <a>|</a>
                 <a href="{{ url_for('login') }}">English</a>
             </div>

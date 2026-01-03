@@ -17,9 +17,9 @@
                 <span class="session-info">{{ now.strftime("%d.%m.%Y")}}</span>
                 <span class="top-bar-label">um:</span>
                 <span class="session-info">{{ now.strftime("%H:%M")}} Uhr</span>
-                <button type="button" class="btn-text">
+                <a href="/logout" class="btn-text">
                     <img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Abmelden
-                </button>
+                </a>
                 <a>|</a>
                 <a href="{{ url_for('login') }}">English</a>
             </div>
@@ -55,7 +55,8 @@
                 </nav>
                 <!-- Content -->
                 <main class="content">
-                    <h1>Modulnoten WiSe 2025/26 für [placeholder]</h1>
+                    <h1>Modulnoten WiSe 2025/26 für {{session["display_name"]}}</h1>
+                    <p>Student ID : {{student_id}}</p>
                     <p class="header-grey-box" style ="margin-bottom:auto;">
                         Wählen Sie ein Semester
                     </p>
@@ -81,19 +82,35 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>04-10-0119/de</td>
-                            <td>Mathematik II für Informatik</td>
-                            <td>2,0</td>
-                            <td>9,0</td>
-                            <td>bestanden</td>
-                        </tr>
+                            {% set stats = namespace(total_ects=0, weighted_sum=0) %}
+                            {% for g in grades %}
+                            <tr>
+                                <td>{{g.course_code}}</td>
+                                <td>{{g.course_name}}</td>
+                                <td>{{g.grade}}</td>
+                                <td>{{g.ects}}</td>
+                                <td>{% if g.grade|float <= 4.0 %}
+                                        bestanden
+                                    {% else %}
+                                        nicht bestanden
+                                    {% endif %}</td>
+                                </tr>
+                                    {% if g.grade|float <= 4.0 %}
+                                        {% set stats.total_ects = stats.total_ects + g.ects %}
+                                        {% set stats.weighted_sum = stats.weighted_sum + (g.grade|float * g.ects) %}
+                                    {% endif %}
+                            {% endfor %}
                         <thead>
                             <tr>
                                 <td>Semester-GPA</td>
                                 <td></td>
-                                <td>2,0</td>
-                                <td>9,0</td>
+                                <td>{% if stats.total_ects > 0 %}
+                                        {{ '%.3f' % (stats.weighted_sum / stats.total_ects) }}
+                                    {% else %}
+                                        N/A
+                                    {% endif %}
+                                </td>
+                                <td>{{ stats.total_ects }}</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
