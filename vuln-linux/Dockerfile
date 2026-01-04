@@ -17,13 +17,13 @@ RUN gcc /tmp/legacy_check.c -o /usr/local/bin/legacy_check && \
 
 #users
 RUN useradd -m tu27bd3d10Da && echo "tu27bd3d10Da:legacy123" | chpasswd
-RUN useradd -m admin1 && echo "admin1:admin1" | chpasswd
+RUN useradd -m admin123 && echo "admin123:admin123" | chpasswd
 
 #ssh
 RUN mkdir /var/run/sshd
 
 # Sudo misconfig
-RUN echo "admin1 ALL=(root) NOPASSWD: /usr/bin/sqlite3" >> /etc/sudoers
+RUN echo "admin123 ALL=(root) NOPASSWD: /usr/bin/sqlite3" >> /etc/sudoers
 
 # Disable root SSH
 RUN sed -i 's/^#PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config

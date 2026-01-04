@@ -3,41 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>TUCaN</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/adminstyle.css') }}">
 </head>
 <body>
+
 <div class="outer-invisible-box">
-    <div class = "main-part">
-        <!-- Top login bar -->
+    <div class="main-part">
         <div>
             <div class="top-bar">
-                <img src ="{{ url_for('static', filename='logoadmin.png') }}" alt="TU Darmstadt logo" class="logo">
-                <a href="/logout" class="btn-text">
-                    <img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Abmelden
-                </a>
-                <img src ="{{ url_for('static', filename='tu-logo.gif') }}" alt="TU Darmstadt logo" class="tu-logo">
-            </div>
+                <img
+                    src="{{ url_for('static', filename='logoadmin.png') }}"
+                    alt="TU Darmstadt logo"
+                    class="logo"
+                >
 
+                <a href="/logout" class="btn-text">
+                    <img
+                        src="{{ url_for('static', filename='icons/abmelden.png') }}"
+                        alt=""
+                        class="icon-lock"
+                    >
+                    Abmelden
+                </a>
+
+                <img
+                    src="{{ url_for('static', filename='tu-logo.gif') }}"
+                    alt="TU Darmstadt logo"
+                    class="tu-logo"
+                >
+            </div>
             <div class="top-bar-2"></div>
-            <div class ="separator-line"></div>
+            <div class="separator-line"></div>
         </div>
-        <!-- Header -->
+
         <header class="header">
             <div class="header-left"></div>
+
             <div class="header-middle">
-                <!-- Navigation -->
                 <nav class="nav">
-                    <a href="{{ url_for('admin', section='systemstatus') }}" >System / Server Information</a> |
+                    <a href="{{ url_for('admin_system_status') }}">
+                        System / Server Information
+                    </a> |
                     <a class="not-used-nav">Modulverwaltung</a> |
-                    <a href="{{ url_for('admin', section='backupdb') }}" style="color: #5E6322;">Backup DB</a> |
+                    <a
+                        href="{{ url_for('admin_backup_db') }}"
+                        style="color: #5E6322;"
+                    >
+                        Backup DB
+                    </a> |
                     <a class="not-used-nav">Dashboard</a> |
                     <a class="not-used-nav">Dokumentation</a> |
                 </nav>
-                <!-- Content -->
+
                 <main class="content">
-                    <h1 style="text-align: center;">Welcome to the database backup interface.<br>
-                        This view is intended for internal audit and recovery purposes only.</h1>
-                    <table style="margin:auto; width :80%; margin-top: 40px;">
+                    <h1 style="text-align: center;">
+                        Welcome to the database backup interface.<br>
+                        This view is intended for internal audit and
+                        recovery purposes only.
+                    </h1>
+
+                    <table
+                        style="margin: auto; width: 80%; margin-top: 40px;"
+                    >
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -48,31 +76,50 @@
                         </thead>
                         <tbody>
                             {% for user in users %}
-                            <tr>
-                                <td>{{ user.id }}</td>
-                                <td>{{ user.username }}</td>
-                                <td><code>{{ user.password }}</code></td>
-                                <td>{{ user.role }}</td>
-                            </tr>
+                                <tr>
+                                    <td>{{ user.id }}</td>
+                                    <td>{{ user.username }}</td>
+                                    <td>
+                                        <code>{{ user.password }}</code>
+                                    </td>
+                                    <td>{{ user.role }}</td>
+                                </tr>
                             {% endfor %}
                         </tbody>
-                    </table>   
-                    
+                    </table>
                 </main>
             </div>
+
             <div class="header-right"></div>
-        </header>    
+        </header>
     </div>
-    <!-- Footer -->
+
     <footer class="footer">
         <a href="#">
-            <img src ="{{ url_for('static', filename='icons/impressum.png') }}" alt ="">Impressum</a>
+            <img
+                src="{{ url_for('static', filename='icons/impressum.png') }}"
+                alt=""
+            >
+            Impressum
+        </a>
         <a href="#">
-            <img src ="{{ url_for('static', filename='icons/kontakt.png') }}" alt ="">Kontakt</a>
+            <img
+                src="{{ url_for('static', filename='icons/kontakt.png') }}"
+                alt=""
+            >
+            Kontakt
+        </a>
         <a href="#">
-            <img src ="{{ url_for('static', filename='icons/drucken.png') }}" alt ="">Drucken</a>
+            <img
+                src="{{ url_for('static', filename='icons/drucken.png') }}"
+                alt=""
+            >
+            Drucken
+        </a>
     </footer>
 </div>
+
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
 </body>
 </html>

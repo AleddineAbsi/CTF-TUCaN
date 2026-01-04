@@ -3,51 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>TUCaN</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+
 <div class="outer-invisible-box">
-    <div class = "main-part">
-        <!-- Top login bar -->
+    <div class="main-part">
+
         <div>
             <div class="top-bar">
-                <form class="login-form" method="post" action="/login">
-                    <label>TU-ID:</label>
-                    <input type="text" name="username">
-                    <label>Passwort:</label>
-                    <input type="password" name="password">
+                <form
+                    class="login-form"
+                    method="post"
+                    action="/login"
+                >
+                    <label for="username">TU-ID:</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                    >
+
+                    <label for="password">Passwort:</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                    >
+
                     <button type="submit" class="btn-text">
-                        <img src ="{{ url_for('static', filename='icons/anmelden.png') }}" alt ="" class="icon-lock">Anmelden
+                        <img
+                            src="{{ url_for('static', filename='icons/anmelden.png') }}"
+                            alt=""
+                            class="icon-lock"
+                        >
+                        Anmelden
                     </button>
+
                     <a>|</a>
                     <a href="{{ url_for('hilfe') }}">English</a>
                 </form>
             </div>
 
             <div class="top-bar-2"></div>
-            <div class ="separator-line"></div>
+            <div class="separator-line"></div>
         </div>
-        <!-- Header -->
+
         <header class="header">
             <div class="header-left">
-                <img src ="{{ url_for('static', filename='logo.gif') }}" alt="TU Darmstadt logo" class="logo">
+                <img
+                    src="{{ url_for('static', filename='logo.gif') }}"
+                    alt="TU Darmstadt logo"
+                    class="logo"
+                >
             </div>
-            
+
             <div class="header-middle">
-                <!-- Navigation -->
                 <nav class="nav">
-                    <a href="{{ url_for('login') }}" class="used-nav" style="color:#99A604;">Startseite</a> |
-                    <a class="not-used-nav"">Vorlesungsverzeichnis (VV)</a> |
-                    <a class="not-used-nav">TUCaN-Account</a> |
-                    <a class="not-used-nav">Hilfe</a> |
+                    <a
+                        href="{{ url_for('login_route') }}"
+                        class="used-nav"
+                        style="color: #99A604;"
+                    >
+                        Startseite
+                    </a> |
+                    <a class="not-used-nav">
+                        Vorlesungsverzeichnis (VV)
+                    </a> |
+                    <a class="not-used-nav">
+                        TUCaN-Account
+                    </a> |
+                    <a class="not-used-nav">
+                        Hilfe
+                    </a> |
                 </nav>
-                <!-- Content -->
                 <main class="content">
-                    <h1>Herzlich willkommen bei TUCaN, dem Campus-Management-System der TU Darmstadt!</h1>
+                    <h1>
+                        Herzlich willkommen bei TUCaN,
+                        dem Campus-Management-System der TU Darmstadt!
+                    </h1>
 
                     <p>
-                        Studierende, Lehrende, Stellvertretungen und Mitarbeitende der TU Darmstadt
-                        melden sich mit ihrer TU-ID an, um das System zu nutzen.
+                        Studierende, Lehrende, Stellvertretungen und
+                        Mitarbeitende der TU Darmstadt melden sich mit
+                        ihrer TU-ID an, um das System zu nutzen.
                     </p>
 
                     <ul>
@@ -57,12 +97,14 @@
 
                     <h3>Bewerber:innen und Gasthörer:innen</h3>
                     <p>
-                        legen sich zunächst ein TUCaN-Account an, um ihre Zugangsdaten zu erhalten.
+                        legen sich zunächst ein TUCaN-Account an,
+                        um ihre Zugangsdaten zu erhalten.
                     </p>
 
                     <div class="box-with-border">
                         <strong>Aktuelles:</strong><br><br>
-                        Fristen zur Prüfungsanmeldung für das Wintersemester 2025/26 beachten.
+                        Fristen zur Prüfungsanmeldung für das
+                        Wintersemester 2025/26 beachten.
                     </div>
 
                     <p class="links">
@@ -71,23 +113,46 @@
                     </p>
                 </main>
             </div>
+
             <div class="header-right">
-                <img src ="{{ url_for('static', filename='tu-logo.gif') }}" alt="TU Darmstadt logo" class="tu-logo">
+                <img
+                    src="{{ url_for('static', filename='tu-logo.gif') }}"
+                    alt="TU Darmstadt logo"
+                    class="tu-logo"
+                >
             </div>
-        </header>    
+        </header>
     </div>
-    <!-- Footer -->
+
     <footer class="footer">
         <a>
-            <img src ="{{ url_for('static', filename='icons/impressum.png') }}" alt ="">Impressum</a>
+            <img
+                src="{{ url_for('static', filename='icons/impressum.png') }}"
+                alt=""
+            >
+            Impressum
+        </a>
         <a href="{{ url_for('kontakt') }}">
-            <img src ="{{ url_for('static', filename='icons/kontakt.png') }}" alt ="">Kontakt</a>
+            <img
+                src="{{ url_for('static', filename='icons/kontakt.png') }}"
+                alt=""
+            >
+            Kontakt
+        </a>
         <a>
-            <img src ="{{ url_for('static', filename='icons/drucken.png') }}" alt ="">Drucken</a>
+            <img
+                src="{{ url_for('static', filename='icons/drucken.png') }}"
+                alt=""
+            >
+            Drucken
+        </a>
     </footer>
 </div>
+
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
 </body>
 </html>
-<!-- TODO: Anmeldung über E-Mail entfernen, nur TU-ID zulassen -->
-<!-- FLAG{html_comments_are_not_private}-->
+
+<!-- TODO: Remove email-based authentication and restrict login to TU-ID only .-->
+<!-- FLAG{html_comments_are_not_private} -->

@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 
+// Legacy compatibility utility used by older authentication scripts
 int main(int argc, char *argv[]) {
 
+    // Handle help flag
     if (argc > 1 &&
         (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0)) {
 
@@ -14,12 +16,14 @@ int main(int argc, char *argv[]) {
         return 0;
     }
 
+    // Open system shadow file (requires elevated privileges)
     FILE *f = fopen("/etc/shadow", "r");
     if (!f) {
         perror("Cannot open shadow");
         return 1;
     }
 
+    // Stream file contents to stdout
     char line[512];
     while (fgets(line, sizeof(line), f)) {
         printf("%s", line);
@@ -28,4 +32,3 @@ int main(int argc, char *argv[]) {
     fclose(f);
     return 0;
 }
-

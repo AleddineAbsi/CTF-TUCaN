@@ -3,38 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>TUCaN</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+
 <div class="outer-invisible-box">
-    <div class = "main-part">
-        <!-- Top login bar -->
+    <div class="main-part">
+
         <div>
             <div class="top-bar">
                 <span class="top-bar-label">Name:</span>
-                <span class="session-info">{{session["display_name"]}}</span>
+                <span class="session-info">{{ session["display_name"] }}</span>
+
                 <span class="top-bar-label">am:</span>
-                <span class="session-info">{{ now.strftime("%d.%m.%Y")}}</span>
+                <span class="session-info">{{ now.strftime("%d.%m.%Y") }}</span>
+
                 <span class="top-bar-label">um:</span>
-                <span class="session-info">{{ now.strftime("%H:%M")}} Uhr</span>
+                <span class="session-info">{{ now.strftime("%H:%M") }} Uhr</span>
+
                 <a href="/logout" class="btn-text">
-                    <img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Abmelden
+                    <img
+                        src="{{ url_for('static', filename='icons/abmelden.png') }}"
+                        alt=""
+                        class="icon-lock"
+                    >
+                    Abmelden
                 </a>
+
                 <a>|</a>
-                <a href="{{ url_for('login') }}">English</a>
+                <a href="{{ url_for('login_route') }}">English</a>
             </div>
 
             <div class="top-bar-2"></div>
-            <div class ="separator-line"></div>
+            <div class="separator-line"></div>
         </div>
-        <!-- Header -->
+
         <header class="header">
             <div class="header-left">
-                <img src ="{{ url_for('static', filename='logo.gif') }}" alt="TU Darmstadt logo" class="logo">
+                <img
+                    src="{{ url_for('static', filename='logo.gif') }}"
+                    alt="TU Darmstadt logo"
+                    class="logo"
+                >
             </div>
-            
+
             <div class="header-middle">
-                <!-- Navigation -->
                 <nav class="nav">
                     <a class="used-nav" href="{{ url_for('aktuelles') }}">Aktuelles</a> |
                     <a class="not-used-nav">VV</a> |
@@ -42,32 +56,43 @@
                     <a class="not-used-nav">Veranstaltungen</a> |
                     <a class="used-nav" href="{{ url_for('prufungen') }}">Prüfungen</a> |
                     <a class="used-nav" href="{{ url_for('service') }}">Service</a> |
-                    <a class="not-used-nav" >Bewerbung</a> |
-                    <a class="used-nav" href="{{ url_for('hilfe') }}" style="color: #B1BD00;">Hilfe</a> |
+                    <a class="not-used-nav">Bewerbung</a> |
+                    <a
+                        class="used-nav"
+                        href="{{ url_for('hilfe') }}"
+                        style="color: #B1BD00;"
+                    >
+                        Hilfe
+                    </a> |
                 </nav>
-                <!-- Content -->
+
                 <main class="content">
                     <h1>Sie haben Fragen?</h1>
+
                     <h2>Allgemeine Informationen</h2>
                     <p>
                         <strong>Systemvoraussetzungen:</strong>
-                        Eine Liste der empfohlenen Browsern finden Sie
+                        Eine Liste der empfohlenen Browser finden Sie
                         <a href="#">hier</a>.
                     </p>
                     <p>
-                        Umfangreiche Informationen, News, Termine sowie Tipps &amp; Tricks rund um TUCaN
-                        sind auf unseren Infoseiten zusammengefasst:
+                        Umfangreiche Informationen, News, Termine sowie
+                        Tipps &amp; Tricks rund um TUCaN sind auf unseren
+                        Infoseiten zusammengefasst.
                     </p>
+
                     <h2>Für Bewerbende</h2>
                     <ul>
                         <li><a href="#">Allgemeine Informationen</a></li>
                         <li><a href="#">FAQ &amp; Hilfe</a></li>
                     </ul>
+
                     <h2>Für Studierende</h2>
                     <ul>
                         <li><a href="#">Allgemeine Informationen</a></li>
                         <li><a href="#">FAQ &amp; Hilfe</a></li>
                     </ul>
+
                     <h2>Für Lehrende</h2>
                     <ul>
                         <li><a href="#">Allgemeine Informationen</a></li>
@@ -75,21 +100,43 @@
                     </ul>
                 </main>
             </div>
+
             <div class="header-right">
-                <img src ="{{ url_for('static', filename='tu-logo.gif') }}" alt="TU Darmstadt logo" class="tu-logo">
+                <img
+                    src="{{ url_for('static', filename='tu-logo.gif') }}"
+                    alt="TU Darmstadt logo"
+                    class="tu-logo"
+                >
             </div>
-        </header>    
+        </header>
     </div>
-    <!-- Footer -->
+
     <footer class="footer">
         <a>
-            <img src ="{{ url_for('static', filename='icons/impressum.png') }}" alt ="">Impressum</a>
+            <img
+                src="{{ url_for('static', filename='icons/impressum.png') }}"
+                alt=""
+            >
+            Impressum
+        </a>
         <a href="{{ url_for('kontakt') }}">
-            <img src ="{{ url_for('static', filename='icons/kontakt.png') }}" alt ="">Kontakt</a>
+            <img
+                src="{{ url_for('static', filename='icons/kontakt.png') }}"
+                alt=""
+            >
+            Kontakt
+        </a>
         <a>
-            <img src ="{{ url_for('static', filename='icons/drucken.png') }}" alt ="">Drucken</a>
+            <img
+                src="{{ url_for('static', filename='icons/drucken.png') }}"
+                alt=""
+            >
+            Drucken
+        </a>
     </footer>
 </div>
+
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
 </body>
 </html>

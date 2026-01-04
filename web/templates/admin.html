@@ -3,64 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <title>TUCaN</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/adminstyle.css') }}">
 </head>
 <body>
+
 <div class="outer-invisible-box">
-    <div class = "main-part">
-        <!-- Top login bar -->
+    <div class="main-part">
+
         <div>
             <div class="top-bar">
-                <img src ="{{ url_for('static', filename='logoadmin.png') }}" alt="TU Darmstadt logo" class="logo">
-                <img src ="{{ url_for('static', filename='tu-logo.gif') }}" alt="TU Darmstadt logo" class="tu-logo">
+                <img
+                    src="{{ url_for('static', filename='logoadmin.png') }}"
+                    alt="TU Darmstadt logo"
+                    class="logo"
+                >
+                <img
+                    src="{{ url_for('static', filename='tu-logo.gif') }}"
+                    alt="TU Darmstadt logo"
+                    class="tu-logo"
+                >
             </div>
 
             <div class="top-bar-2"></div>
-            <div class ="separator-line"></div>
+            <div class="separator-line"></div>
         </div>
-        <!-- Header -->
+
         <header class="header">
             <div class="header-left"></div>
+
             <div class="header-middle">
-                <!-- Navigation -->
                 <nav class="nav">
-                    <a href="{{ url_for('admin', section='systemstatus') }}" >System / Server Information</a> |
+                    <a href="{{ url_for('admin_system_status') }}">
+                        System / Server Information
+                    </a> |
                     <a class="not-used-nav">Modulverwaltung</a> |
-                    <a href="{{ url_for('admin', section='backupdb') }}">Backup DB</a> |
+                    <a href="{{ url_for('admin_backup_db') }}">
+                        Backup DB
+                    </a> |
                     <a class="not-used-nav">Dashboard</a> |
                     <a class="not-used-nav">Dokumentation</a> |
                 </nav>
-                <!-- Content -->
+
                 <main class="content">
-                    <h1>Herzlich willkommen im Administrationsportal TUCadmiN des Campus-Management-Systems!</h1>
+                    <h1>
+                        Herzlich willkommen im Administrationsportal
+                        TUCadmiN des Campus-Management-Systems!
+                    </h1>
+
                     {% if error %}
-                        <p style="color:red; text-align: center;">{{ error }}</p>
+                        <!-- Authentication error message -->
+                        <p style="color: red; text-align: center;">
+                            {{ error }}
+                        </p>
                     {% endif %}
-                    <form class="login-form" method="post" action="/admin">
-                        <label>TU-ID:</label>
-                        <input type="text" name="username">
-                        <label>Passwort:</label>
-                        <input type="password" name="password">
+
+                    <!-- Admin login form -->
+                    <form
+                        class="login-form"
+                        method="post"
+                        action="/admin_tucan_portal"
+                    >
+                        <label for="username">TU-ID:</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                        >
+
+                        <label for="password">Passwort:</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                        >
+
                         <button type="submit" class="btn-text">
-                            <img src ="{{ url_for('static', filename='icons/anmelden.png') }}" alt ="" class="icon-lock">Anmelden
+                            <img
+                                src="{{ url_for('static', filename='icons/anmelden.png') }}"
+                                alt=""
+                                class="icon-lock"
+                            >
+                            Anmelden
                         </button>
                     </form>
-                    
                 </main>
             </div>
+
             <div class="header-right"></div>
-        </header>    
+        </header>
     </div>
-    <!-- Footer -->
+
     <footer class="footer">
         <a href="#">
-            <img src ="{{ url_for('static', filename='icons/impressum.png') }}" alt ="">Impressum</a>
+            <img
+                src="{{ url_for('static', filename='icons/impressum.png') }}"
+                alt=""
+            >
+            Impressum
+        </a>
         <a href="#">
-            <img src ="{{ url_for('static', filename='icons/kontakt.png') }}" alt ="">Kontakt</a>
+            <img
+                src="{{ url_for('static', filename='icons/kontakt.png') }}"
+                alt=""
+            >
+            Kontakt
+        </a>
         <a href="#">
-            <img src ="{{ url_for('static', filename='icons/drucken.png') }}" alt ="">Drucken</a>
+            <img
+                src="{{ url_for('static', filename='icons/drucken.png') }}"
+                alt=""
+            >
+            Drucken
+        </a>
     </footer>
 </div>
+
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
 </body>
 </html>

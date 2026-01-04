@@ -3,70 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <title>TUCaN</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/adminstyle.css') }}">
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/adminstyle.css') }}"
+    >
 </head>
 <body>
+
 <div class="outer-invisible-box">
-    <div class = "main-part">
-        <!-- Top login bar -->
+    <div class="main-part">
+
         <div>
             <div class="top-bar">
-                <img src ="{{ url_for('static', filename='logoadmin.png') }}" alt="TU Darmstadt logo" class="logo">
+                <img
+                    src="{{ url_for('static', filename='logoadmin.png') }}"
+                    alt="TU Darmstadt logo"
+                    class="logo"
+                >
+
                 <a href="/logout" class="btn-text">
-                    <img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Abmelden
+                    <img
+                        src="{{ url_for('static', filename='icons/abmelden.png') }}"
+                        alt=""
+                        class="icon-lock"
+                    >
+                    Abmelden
                 </a>
-                <img src ="{{ url_for('static', filename='tu-logo.gif') }}" alt="TU Darmstadt logo" class="tu-logo">
+
+                <img
+                    src="{{ url_for('static', filename='tu-logo.gif') }}"
+                    alt="TU Darmstadt logo"
+                    class="tu-logo"
+                >
             </div>
 
             <div class="top-bar-2"></div>
-            <div class ="separator-line"></div>
+            <div class="separator-line"></div>
         </div>
-        <!-- Header -->
+
         <header class="header">
             <div class="header-left"></div>
+
             <div class="header-middle">
-                <!-- Navigation -->
                 <nav class="nav">
-                    <a href="{{ url_for('admin', section='systemstatus') }}" style="color: #5E6322;" >System / Server Information</a> |
+                    <a
+                        href="{{ url_for('admin_system_status') }}"
+                        style="color: #5E6322;"
+                    >
+                        System / Server Information
+                    </a> |
                     <a class="not-used-nav">Modulverwaltung</a> |
-                    <a href="{{ url_for('admin', section='backupdb') }}">Backup DB</a> |
+                    <a href="{{ url_for('admin_backup_db') }}">
+                        Backup DB
+                    </a> |
                     <a class="not-used-nav">Dashboard</a> |
                     <a class="not-used-nav">Dokumentation</a> |
                 </nav>
-                <!-- Content -->
+
                 <main class="content">
-                    <h1>Herzlich willkommen im Administrationsportal TUCadmiN des Campus-Management-Systems!</h1>
+                    <h1>
+                        Herzlich willkommen im Administrationsportal
+                        TUCadmiN des Campus-Management-Systems!
+                    </h1>
+
                     <p>server infos</p>
+
                     <h2>System Information</h2>
 
                     <ul>
-                        <li><strong>Hostname:</strong> {{ sysinfo.hostname }}</li>
-                        <li><strong>OS:</strong> {{ sysinfo.os }} {{ sysinfo.os_version }}</li>
-                        <li><strong>Architecture:</strong> {{ sysinfo.architecture }}</li>
-                        <li><strong>Python:</strong> {{ sysinfo.python_version }}</li>
-                        <li><strong>Working directory:</strong> {{ sysinfo.cwd }}</li>
+                        <li>
+                            <strong>Hostname:</strong>
+                            {{ sysinfo.hostname }}
+                        </li>
+                        <li>
+                            <strong>OS:</strong>
+                            {{ sysinfo.os }} {{ sysinfo.os_version }}
+                        </li>
+                        <li>
+                            <strong>Architecture:</strong>
+                            {{ sysinfo.architecture }}
+                        </li>
+                        <li>
+                            <strong>Python:</strong>
+                            {{ sysinfo.python_version }}
+                        </li>
+                        <li>
+                            <strong>Working directory:</strong>
+                            {{ sysinfo.cwd }}
+                        </li>
                     </ul>
 
                     <p class="note">
                         Server running continuously since last maintenance window.
                     </p>
-
-                    
                 </main>
             </div>
+
             <div class="header-right"></div>
-        </header>    
+        </header>
     </div>
-    <!-- Footer -->
+
     <footer class="footer">
         <a>
-            <img src ="{{ url_for('static', filename='icons/impressum.png') }}" alt ="">Impressum</a>
+            <img
+                src="{{ url_for('static', filename='icons/impressum.png') }}"
+                alt=""
+            >
+            Impressum
+        </a>
         <a href="{{ url_for('kontakt') }}">
-            <img src ="{{ url_for('static', filename='icons/kontakt.png') }}" alt ="">Kontakt</a>
+            <img
+                src="{{ url_for('static', filename='icons/kontakt.png') }}"
+                alt=""
+            >
+            Kontakt
+        </a>
         <a>
-            <img src ="{{ url_for('static', filename='icons/drucken.png') }}" alt ="">Drucken</a>
+            <img
+                src="{{ url_for('static', filename='icons/drucken.png') }}"
+                alt=""
+            >
+            Drucken
+        </a>
     </footer>
 </div>
+
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
 </body>
 </html>

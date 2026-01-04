@@ -1,9 +1,17 @@
-import sqlite3,os
+import sqlite3
+import os
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))          # web/
-PROJECT_ROOT = os.path.dirname(BASE_DIR)                       # CTF-TUCaN/
+# Base directory of the current file (web/)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Project root directory (CTF-TUCaN/)
+PROJECT_ROOT = os.path.dirname(BASE_DIR)
+
+# Absolute path to the SQLite database file
 DB_PATH = os.path.join(BASE_DIR, "database", "app.db")
 
+
+# Static course dataset used to initialize the database
 COURSES = [
     ("04-10-0118/de", "Mathematik I für Informatik", 5.0, "WS2025"),
     ("04-10-0120/de", "Automaten, formale Sprachen und Entscheidbarkeit", 5.0, "WS2025"),
@@ -21,7 +29,12 @@ COURSES = [
     ("20-00-1150", "Probabilistische Methoden der Informatik", 5.0, "WS2025"),
 ]
 
+
 def generate_courses():
+    """
+    Inserts a predefined set of courses into the database.
+    Intended to be executed once during initial setup or if database reset is needed.
+    """
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
@@ -36,7 +49,7 @@ def generate_courses():
 
     conn.commit()
     conn.close()
-    print("[+] Courses generated.")
+
 
 if __name__ == "__main__":
     generate_courses()

@@ -3,84 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <title>TUCaN</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+
 <div class="outer-invisible-box">
-    <div class = "main-part">
-        <!-- Top login bar -->
+    <div class="main-part">
+
         <div>
             <div class="top-bar">
                 <span class="top-bar-label">Name:</span>
-                <span class="session-info">{{session["display_name"]}}</span>
+                <span class="session-info">{{ session["display_name"] }}</span>
+
                 <span class="top-bar-label">am:</span>
-                <span class="session-info">{{ now.strftime("%d.%m.%Y")}}</span>
+                <span class="session-info">{{ now.strftime("%d.%m.%Y") }}</span>
+
                 <span class="top-bar-label">um:</span>
-                <span class="session-info">{{ now.strftime("%H:%M")}} Uhr</span>
+                <span class="session-info">{{ now.strftime("%H:%M") }} Uhr</span>
+
                 <a href="/logout" class="btn-text">
-                    <img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Abmelden
+                    <img
+                        src="{{ url_for('static', filename='icons/abmelden.png') }}"
+                        alt=""
+                        class="icon-lock"
+                    >
+                    Abmelden
                 </a>
+
                 <a>|</a>
-                <a href="{{ url_for('login') }}">English</a>
+                <a href="{{ url_for('login_route') }}">English</a>
             </div>
 
             <div class="top-bar-2"></div>
-            <div class ="separator-line"></div>
+            <div class="separator-line"></div>
         </div>
-        <!-- Header -->
+
         <header class="header">
+
             <div class="header-left">
-                <img src ="{{ url_for('static', filename='logo.gif') }}" alt="TU Darmstadt logo" class="logo">
+                <img
+                    src="{{ url_for('static', filename='logo.gif') }}"
+                    alt="TU Darmstadt logo"
+                    class="logo"
+                >
+
                 <div class="options">
                     <a href="#" class="opt-bar">Meine Prüfungen</a>
-                    <a href="{{ url_for('prufungen', section='prufungsplan') }}" class="opt-bar">Mein Prüfungsplan</a>
-                    <a href="{{ url_for('prufungen', section='semesterergebnisse') }}" class="opt-bar" style="background-color: #FFFFFF;">Semesterergebnisse</a>
-                    <a href="{{ url_for('prufungen', section='semesterergebnisse',subsection='modulergebnisse') }}" class="opt-bar sub-opt-bar">Modulergebnisse</a>
+                    <a
+                        href="{{ url_for('prufungen', section='prufungsplan') }}"
+                        class="opt-bar"
+                    >
+                        Mein Prüfungsplan
+                    </a>
+                    <a
+                        href="{{ url_for('prufungen', section='semesterergebnisse') }}"
+                        class="opt-bar"
+                        style="background-color: #FFFFFF;"
+                    >
+                        Semesterergebnisse
+                    </a>
+                    <a
+                        href="{{ url_for('prufungen', section='semesterergebnisse', subsection='modulergebnisse') }}"
+                        class="opt-bar sub-opt-bar"
+                    >
+                        Modulergebnisse
+                    </a>
                     <a href="#" class="opt-bar sub-opt-bar">Prüfungsergebnisse</a>
                     <a href="#" class="opt-bar">Leistungsspiegel</a>
                 </div>
             </div>
-            
+
             <div class="header-middle">
-                <!-- Navigation -->
                 <nav class="nav">
                     <a class="used-nav" href="{{ url_for('aktuelles') }}">Aktuelles</a> |
                     <a class="not-used-nav">VV</a> |
                     <a class="not-used-nav">Stundenplan</a> |
                     <a class="not-used-nav">Veranstaltungen</a> |
-                    <a class="used-nav" href="{{ url_for('prufungen') }}" style="color: #B1BD00;">Prüfungen</a> |
+                    <a
+                        class="used-nav"
+                        href="{{ url_for('prufungen') }}"
+                        style="color: #B1BD00;"
+                    >
+                        Prüfungen
+                    </a> |
                     <a class="used-nav" href="{{ url_for('service') }}">Service</a> |
-                    <a class="not-used-nav" >Bewerbung</a> |
+                    <a class="not-used-nav">Bewerbung</a> |
                     <a class="used-nav" href="{{ url_for('hilfe') }}">Hilfe</a> |
                 </nav>
-                <!-- Content -->
+
                 <main class="content">
-                   <h1>Semesterergebnisse</h1>
-                   <p>Im Bereich Semesterergebnisse können Sie Ihre Noten einsehen; hierbei wird in Modul- und Prüfungsergebnisse unterschieden.</p>
-                   <h2>Modulergebnisse</h2>
-                   <p>Im Untermenü Modulergebnisse sehen Sie, welche Noten Sie für Ihre Module erreicht haben.
-                    Zudem erfahren Sie, welche Bausteine zum Modul gehören und aus welchen Prüfungen sich Ihre Modulnote zusammensetzt.</p>
+                    <h1>Semesterergebnisse</h1>
+
+                    <p>
+                        Im Bereich <em>Semesterergebnisse</em> können Sie Ihre
+                        Noten einsehen; hierbei wird zwischen Modul- und
+                        Prüfungsergebnissen unterschieden.
+                    </p>
+
+                    <h2>Modulergebnisse</h2>
+                    <p>
+                        Im Untermenü <em>Modulergebnisse</em> sehen Sie,
+                        welche Noten Sie für Ihre Module erreicht haben.
+                        Zudem erfahren Sie, welche Bausteine zum Modul gehören
+                        und aus welchen Prüfungen sich Ihre Modulnote zusammensetzt.
+                    </p>
+
                     <h2>Prüfungsergebnisse</h2>
-                    <p>Im Untermenü Prüfungsergebnisse sehen Sie, welche Noten Sie in Ihren Prüfungen erreicht haben.
-                    Sollte bei einer Prüfung nicht die Note stehen, die Sie erhalten haben, wenden Sie sich bitte an Ihr Studienbüro.</p>
-                    <a href="#">Anleitungen & FAQ</a>
+                    <p>
+                        Im Untermenü <em>Prüfungsergebnisse</em> sehen Sie,
+                        welche Noten Sie in Ihren Prüfungen erreicht haben.
+                        Sollte bei einer Prüfung nicht die Note stehen,
+                        die Sie erhalten haben, wenden Sie sich bitte an
+                        Ihr Studienbüro.
+                    </p>
+
+                    <a href="#">Anleitungen &amp; FAQ</a>
                 </main>
             </div>
+
             <div class="header-right">
-                <img src ="{{ url_for('static', filename='tu-logo.gif') }}" alt="TU Darmstadt logo" class="tu-logo">
+                <img
+                    src="{{ url_for('static', filename='tu-logo.gif') }}"
+                    alt="TU Darmstadt logo"
+                    class="tu-logo"
+                >
             </div>
-        </header>    
+        </header>
     </div>
-    <!-- Footer -->
+
     <footer class="footer">
         <a>
-            <img src ="{{ url_for('static', filename='icons/impressum.png') }}" alt ="">Impressum</a>
+            <img
+                src="{{ url_for('static', filename='icons/impressum.png') }}"
+                alt=""
+            >
+            Impressum
+        </a>
         <a href="{{ url_for('kontakt') }}">
-            <img src ="{{ url_for('static', filename='icons/kontakt.png') }}" alt ="">Kontakt</a>
+            <img
+                src="{{ url_for('static', filename='icons/kontakt.png') }}"
+                alt=""
+            >
+            Kontakt
+        </a>
         <a>
-            <img src ="{{ url_for('static', filename='icons/drucken.png') }}" alt ="">Drucken</a>
+            <img
+                src="{{ url_for('static', filename='icons/drucken.png') }}"
+                alt=""
+            >
+            Drucken
+        </a>
     </footer>
 </div>
+
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
 </body>
 </html>

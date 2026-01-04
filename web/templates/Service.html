@@ -6,31 +6,46 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+
 <div class="outer-invisible-box">
-    <div class = "main-part">
-        <!-- Top login bar -->
+    <div class="main-part">
+
         <div>
             <div class="top-bar">
                 <span class="top-bar-label">Name:</span>
-                <span class="session-info">{{session["display_name"]}}</span>
+                <span class="session-info">{{ session["display_name"] }}</span>
+
                 <span class="top-bar-label">am:</span>
-                <span class="session-info">{{ now.strftime("%d.%m.%Y")}}</span>
+                <span class="session-info">{{ now.strftime("%d.%m.%Y") }}</span>
+
                 <span class="top-bar-label">um:</span>
-                <span class="session-info">{{ now.strftime("%H:%M")}} Uhr</span>
+                <span class="session-info">{{ now.strftime("%H:%M") }} Uhr</span>
+
                 <a href="/logout" class="btn-text">
-                    <img src ="{{ url_for('static', filename='icons/abmelden.png') }}" alt ="" class="icon-lock">Abmelden
+                    <img
+                        src="{{ url_for('static', filename='icons/abmelden.png') }}"
+                        alt=""
+                        class="icon-lock"
+                    >
+                    Abmelden
                 </a>
                 <a>|</a>
-                <a href="{{ url_for('login') }}">English</a>
+                <a href="{{ url_for('login_route') }}">English</a>
             </div>
 
             <div class="top-bar-2"></div>
-            <div class ="separator-line"></div>
+            <div class="separator-line"></div>
         </div>
-        <!-- Header -->
+
         <header class="header">
+
             <div class="header-left">
-                <img src ="{{ url_for('static', filename='logo.gif') }}" alt="TU Darmstadt logo" class="logo">
+                <img
+                    src="{{ url_for('static', filename='logo.gif') }}"
+                    alt="TU Darmstadt logo"
+                    class="logo"
+                >
+
                 <div class="options">
                     <a href="#" class="opt-bar">Persönliche Daten</a>
                     <a href="#" class="opt-bar">Meine Dokumente</a>
@@ -38,41 +53,55 @@
                     <a href="#" class="opt-bar">Sperren</a>
                 </div>
             </div>
-            
+
             <div class="header-middle">
-                <!-- Navigation -->
                 <nav class="nav">
                     <a class="used-nav" href="{{ url_for('aktuelles') }}">Aktuelles</a> |
                     <a class="not-used-nav">VV</a> |
                     <a class="not-used-nav">Stundenplan</a> |
                     <a class="not-used-nav">Veranstaltungen</a> |
                     <a class="used-nav" href="{{ url_for('prufungen') }}">Prüfungen</a> |
-                    <a class="used-nav" href="{{ url_for('service') }}" style="color: #B1BD00;">Service</a> |
+                    <a
+                        class="used-nav"
+                        href="{{ url_for('service') }}"
+                        style="color: #B1BD00;"
+                    >
+                        Service
+                    </a> |
                     <a class="not-used-nav">Bewerbung</a> |
                     <a class="used-nav" href="{{ url_for('hilfe') }}">Hilfe</a> |
                 </nav>
-                <!-- Content -->
+
                 <main class="content">
                     <h1>Service</h1>
+
                     <p>
-                        In diesem Bereich stehen für die verschiedenen Nutzergruppen unterschiedliche Angebote zur Verfügung.
+                        In diesem Bereich stehen für die verschiedenen
+                        Nutzergruppen unterschiedliche Angebote zur Verfügung.
                     </p>
+
                     <h2>Für Studierende</h2>
+
                     <p><strong>Persönliche Daten</strong></p>
                     <ul>
                         <li>
-                            Ansicht und Änderung der in TUCaN gespeicherten persönlichen Daten und der Anschrift
+                            Ansicht und Änderung der in TUCaN gespeicherten
+                            persönlichen Daten und der Anschrift
                             (<a href="#">Anleitung</a>)
                             <ul>
                                 <li>
-                                    Änderungen weiterer Daten anhand des Änderungsbogens bitte über das Studierendensekretariat vornehmen
+                                    Änderungen weiterer Daten bitte über das
+                                    Studierendensekretariat vornehmen
                                 </li>
                                 <li>
-                                    Aktivierung der Weiterleitung der TUCaN-Nachrichten an Ihre studentische E-Mail Adresse
+                                    Aktivierung der Weiterleitung der
+                                    TUCaN-Nachrichten an Ihre studentische
+                                    E-Mail-Adresse
                                 </li>
                             </ul>
                         </li>
                     </ul>
+
                     <p><strong>Meine Dokumente</strong></p>
                     <ul>
                         <li>
@@ -80,80 +109,139 @@
                             (<a href="#">Anleitung</a>)
                         </li>
                     </ul>
+
                     <h2>Für Lehrende</h2>
-                    <p><strong>Persönliche Daten</strong> (<a href="#">Anleitung</a>)</p>
+
+                    <p>
+                        <strong>Persönliche Daten</strong>
+                        (<a href="#">Anleitung</a>)
+                    </p>
                     <ul>
-                        <li>Ansicht der in TUCaN gespeicherten persönlichen Daten</li>
                         <li>
-                            Änderung von Name oder Titel bitte an das Dezernat VII für Personal- und Rechtsangelegenheiten melden
-                            und anschließend eine E-Mail mit der Bitte um Übernahme der dort geänderten Daten an
-                            <a href="mailto:tucan@tu-darmstadt.de">tucan@tu-darmstadt.de</a> senden
+                            Ansicht der in TUCaN gespeicherten persönlichen Daten
                         </li>
                         <li>
-                            Änderung der dienstlichen E-Mail-Adresse bitte in der Accountverwaltung vornehmen
-                            und anschließend eine E-Mail mit der Bitte um Übernahme der dort geänderten Daten an
-                            <a href="mailto:tucan@tu-darmstadt.de">tucan@tu-darmstadt.de</a> senden
+                            Änderung von Name oder Titel bitte an das
+                            Dezernat VII melden und anschließend eine E-Mail
+                            an <a href="mailto:tucan@tu-darmstadt.de">
+                                tucan@tu-darmstadt.de
+                            </a> senden
+                        </li>
+                        <li>
+                            Änderung der dienstlichen E-Mail-Adresse bitte in
+                            der Accountverwaltung vornehmen und anschließend
+                            eine E-Mail an
+                            <a href="mailto:tucan@tu-darmstadt.de">
+                                tucan@tu-darmstadt.de
+                            </a> senden
                         </li>
                         <li>Hochladen eines Fotos</li>
                         <li>Angabe einer URL auf eine persönliche Homepage</li>
                         <li>
-                            Aktivierung der Weiterleitung der TUCaN-Nachrichten an die dienstliche E-Mail-Adresse
+                            Aktivierung der Weiterleitung der
+                            TUCaN-Nachrichten an die dienstliche
+                            E-Mail-Adresse
                             (<a href="#">Anleitung</a>)
                         </li>
                     </ul>
+
                     <p><strong>Raumsuche</strong></p>
                     <ul>
                         <li>
-                            Suche nach Räumen der Technischen Universität Darmstadt nach verschiedenen Kriterien
+                            Suche nach Räumen der Technischen Universität
+                            Darmstadt nach verschiedenen Kriterien
                         </li>
                     </ul>
-                    <h2>Für Stellvertretungen von Lehrenden und Verwaltungsmitarbeitende</h2>
-                    <p><strong>Persönliche Daten</strong> (<a href="#">Anleitung</a>)</p>
+
+                    <h2>
+                        Für Stellvertretungen von Lehrenden und
+                        Verwaltungsmitarbeitende
+                    </h2>
+
+                    <p>
+                        <strong>Persönliche Daten</strong>
+                        (<a href="#">Anleitung</a>)
+                    </p>
                     <ul>
-                        <li>Ansicht der in TUCaN gespeicherten persönlichen Daten</li>
                         <li>
-                            Änderung von Name oder Titel bitte an das Dezernat VII für Personal- und Rechtsangelegenheiten melden
-                            und anschließend eine E-Mail mit der Bitte um Übernahme der dort geänderten Daten an
-                            <a href="mailto:tucan@tu-darmstadt.de">tucan@tu-darmstadt.de</a> senden
+                            Ansicht der in TUCaN gespeicherten persönlichen Daten
                         </li>
                         <li>
-                            Änderung der dienstlichen E-Mail-Adresse bitte in der Accountverwaltung vornehmen
-                            und anschließend eine E-Mail mit der Bitte um Übernahme der dort geänderten Daten an
-                            <a href="mailto:tucan@tu-darmstadt.de">tucan@tu-darmstadt.de</a> senden
+                            Änderungen bitte an das Dezernat VII melden und
+                            anschließend eine E-Mail an
+                            <a href="mailto:tucan@tu-darmstadt.de">
+                                tucan@tu-darmstadt.de
+                            </a> senden
                         </li>
                         <li>
-                            Aktivierung der Weiterleitung der TUCaN-Nachrichten an Ihre dienstliche E-Mail-Adresse
+                            Aktivierung der Weiterleitung der
+                            TUCaN-Nachrichten an Ihre dienstliche
+                            E-Mail-Adresse
                             (<a href="#">Anleitung</a>)
                         </li>
                     </ul>
+
                     <p><strong>Raumsuche</strong></p>
                     <ul>
                         <li>
-                            Suche nach Räumen der Technischen Universität Darmstadt nach verschiedenen Kriterien
+                            Suche nach Räumen der Technischen Universität
+                            Darmstadt nach verschiedenen Kriterien
                         </li>
                     </ul>
-                    <p><strong>Stellvertretungen</strong> (<a href="#">Hinweise für Stellvertretungen</a>)</p>
+
+                    <p>
+                        <strong>Stellvertretungen</strong>
+                        (<a href="#">Hinweise für Stellvertretungen</a>)
+                    </p>
                     <ul>
-                        <li>Bearbeiten von Veranstaltungen (<a href="#">Anleitung</a>)</li>
-                        <li>Bearbeiten von Prüfungen (<a href="#">Anleitung</a>)</li>
-                    </ul>   
+                        <li>
+                            Bearbeiten von Veranstaltungen
+                            (<a href="#">Anleitung</a>)
+                        </li>
+                        <li>
+                            Bearbeiten von Prüfungen
+                            (<a href="#">Anleitung</a>)
+                        </li>
+                    </ul>
                 </main>
             </div>
+
             <div class="header-right">
-                <img src ="{{ url_for('static', filename='tu-logo.gif') }}" alt="TU Darmstadt logo" class="tu-logo">
+                <img
+                    src="{{ url_for('static', filename='tu-logo.gif') }}"
+                    alt="TU Darmstadt logo"
+                    class="tu-logo"
+                >
             </div>
-        </header>    
+        </header>
     </div>
-    <!-- Footer -->
+
     <footer class="footer">
         <a>
-            <img src ="{{ url_for('static', filename='icons/impressum.png') }}" alt ="">Impressum</a>
+            <img
+                src="{{ url_for('static', filename='icons/impressum.png') }}"
+                alt=""
+            >
+            Impressum
+        </a>
         <a href="{{ url_for('kontakt') }}">
-            <img src ="{{ url_for('static', filename='icons/kontakt.png') }}" alt ="">Kontakt</a>
+            <img
+                src="{{ url_for('static', filename='icons/kontakt.png') }}"
+                alt=""
+            >
+            Kontakt
+        </a>
         <a>
-            <img src ="{{ url_for('static', filename='icons/drucken.png') }}" alt ="">Drucken</a>
+            <img
+                src="{{ url_for('static', filename='icons/drucken.png') }}"
+                alt=""
+            >
+            Drucken
+        </a>
     </footer>
 </div>
+
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
 </body>
 </html>
