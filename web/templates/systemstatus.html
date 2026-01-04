@@ -73,23 +73,24 @@
                     <ul>
                         <li>
                             <strong>Hostname:</strong>
-                            {{ sysinfo.hostname }}
+                            {{ system.hostname }}
                         </li>
                         <li>
                             <strong>OS:</strong>
-                            {{ sysinfo.os }} {{ sysinfo.os_version }}
+                            {{ system.os }}
                         </li>
                         <li>
                             <strong>Architecture:</strong>
-                            {{ sysinfo.architecture }}
+                            {{ system.architecture }}
                         </li>
                         <li>
-                            <strong>Python:</strong>
-                            {{ sysinfo.python_version }}
+                            <strong>Internal IP:</strong> 
+                            {{ system.ip }}
                         </li>
                         <li>
                             <strong>Working directory:</strong>
-                            {{ sysinfo.cwd }}
+                            {{ system.working_dir }}
+                            {{system.uptime}}
                         </li>
                     </ul>
 
