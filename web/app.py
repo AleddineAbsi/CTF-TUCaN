@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort, session
+from flask import Flask, render_template, abort, session, redirect
 from datetime import datetime
 
 from db import close_db
@@ -117,6 +117,11 @@ def debug_session():
     """
     return str(dict(session))
 
+@app.errorhandler(Exception)
+def handle_any_exception(e):
+   return redirect("/login")
+
+
 
 # Application lifecycle
 @app.teardown_appcontext
@@ -129,4 +134,4 @@ def teardown_db(exception):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000,debug=False)

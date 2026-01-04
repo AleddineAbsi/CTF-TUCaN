@@ -7,7 +7,7 @@ Maintainer note : do not publish
 - clean up unused JS functions in dashboard
 - check ECTS calculation rounding
 - review session timeout handling
-- remove old admin website (/admin)
+- remove old admin website (/admin_tucan_portal)
 - verify permissions on backup directory
 - disable legacy admin account
 - remove admin1 test user
