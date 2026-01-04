@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort
+from flask import Flask, render_template, abort, session
 from datetime import datetime
 from db import close_db
 from auth import login,logout,admin_login
@@ -10,6 +10,7 @@ app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 now=datetime.now()
 app.secret_key="dev-secret-key"
+app.add_url_rule("/", view_func=login, methods=["GET", "POST"])
 app.add_url_rule("/login", view_func=login, methods=["GET", "POST"])
 app.add_url_rule("/logout", view_func=logout)
 app.add_url_rule("/prufungen/semesterergebnisse/modulergebnisse",view_func=grades_by_id)
@@ -81,6 +82,10 @@ def admin(section=None):
 def debug_session():
     #session not defined yet
     return str(dict(session))
+
+@app.route("/kontakt")
+def kontakt():
+    return render_template("kontakt.html")
 
 
 @app.teardown_appcontext

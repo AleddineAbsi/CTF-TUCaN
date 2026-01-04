@@ -7,11 +7,26 @@ RUN apt update && apt install -y \
     net-tools \
     procps
 
-RUN useradd -m admin1 && echo "admin1:admin123" | chpasswd
+RUN apt install -y gcc
+
+#SUID binary
+COPY legacy_check.c /tmp/legacy_check.c
+RUN gcc /tmp/legacy_check.c -o /usr/local/bin/legacy_check && \
+    chown root:root /usr/local/bin/legacy_check && \
+    chmod 4755 /usr/local/bin/legacy_check
+
+#users
+RUN useradd -m tu27bd3d10Da && echo "tu27bd3d10Da:legacy123" | chpasswd
+RUN useradd -m admin1 && echo "admin1:admin1" | chpasswd
+
+#ssh
 RUN mkdir /var/run/sshd
 
-# for privilege escalation 
+# Sudo misconfig
 RUN echo "admin1 ALL=(root) NOPASSWD: /usr/bin/sqlite3" >> /etc/sudoers
+
+# Disable root SSH
+RUN sed -i 's/^#PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

@@ -5,7 +5,7 @@ def login_required(f):
     @wraps(f)
     def wrapper(*args, **kwargs):
         print("SESSION =", dict(session))
-        if "user_id" not in session:
+        if "user_id" not in session or session.get("role") != "student":
             return redirect("/login")
         return f(*args, **kwargs)
     return wrapper

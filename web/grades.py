@@ -4,7 +4,7 @@ from utils import login_required
 import os
 
 def grades_by_id():
-    if not session.get("user_id"):
+    if not session.get("user_id") or session.get("role") != "student":
         return redirect("/login")
 
     student_id = request.args.get("id")

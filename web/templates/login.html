@@ -36,10 +36,10 @@
             <div class="header-middle">
                 <!-- Navigation -->
                 <nav class="nav">
-                    <a href="#">Startseite</a> |
-                    <a href="#">Vorlesungsverzeichnis (VV)</a> |
-                    <a href="#">TUCaN-Account</a> |
-                    <a href="#">Hilfe</a> |
+                    <a href="{{ url_for('login') }}" class="used-nav" style="color:#99A604;">Startseite</a> |
+                    <a class="not-used-nav"">Vorlesungsverzeichnis (VV)</a> |
+                    <a class="not-used-nav">TUCaN-Account</a> |
+                    <a class="not-used-nav">Hilfe</a> |
                 </nav>
                 <!-- Content -->
                 <main class="content">
@@ -78,14 +78,16 @@
     </div>
     <!-- Footer -->
     <footer class="footer">
-        <a href="#">
+        <a>
             <img src ="{{ url_for('static', filename='icons/impressum.png') }}" alt ="">Impressum</a>
-        <a href="#">
+        <a href="{{ url_for('kontakt') }}">
             <img src ="{{ url_for('static', filename='icons/kontakt.png') }}" alt ="">Kontakt</a>
-        <a href="#">
+        <a>
             <img src ="{{ url_for('static', filename='icons/drucken.png') }}" alt ="">Drucken</a>
     </footer>
 </div>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
+<!-- TODO: Anmeldung über E-Mail entfernen, nur TU-ID zulassen -->
+<!-- FLAG{html_comments_are_not_private}-->

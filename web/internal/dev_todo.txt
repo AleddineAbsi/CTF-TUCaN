@@ -7,9 +7,10 @@ Maintainer note : do not publish
 - clean up unused JS functions in dashboard
 - check ECTS calculation rounding
 - review session timeout handling
-- remove old admin website (admin.html)
+- remove old admin website (/admin)
 - verify permissions on backup directory
 - disable legacy admin account
 - remove admin1 test user
 - remove commented-out SQL queries
 - update TU Darmstadt logo to new minimalist design
+FLAG{old_files_old_problems}

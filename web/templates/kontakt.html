@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>TUCaN</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="outer-invisible-box">
+    <div class = "main-part">
+        <!-- Top login bar -->
+        <div>
+        
+            <div class="top-bar-2"></div>
+            <div class ="separator-line"></div>
+        </div>
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <img src ="{{ url_for('static', filename='logo.gif') }}" alt="TU Darmstadt logo" class="logo">
+            </div>
+            
+            <div class="header-middle">
+                <!-- Navigation -->
+                <nav class="nav">
+                    <a href="{{ url_for('login') }}" class="used-nav">Startseite</a> |
+                    <a class="not-used-nav">Vorlesungsverzeichnis (VV)</a> |
+                    <a class="not-used-nav">TUCaN-Account</a> |
+                    <a class="not-used-nav">Hilfe</a> |
+                </nav>
+                <!-- Content -->
+                <main class="content">
+                    <h1>Kontakt</h1>
+                    <p>
+                        Sie haben Fragen zu TUCaN, benötigen weitere Informationen oder suchen den richtigen Ansprechpartner?
+                        Bitte nutzen Sie die nachstehenden Links. Wir sind gerne für Sie da!
+                    </p>
+
+                    <h2>Hilfe</h2>
+                    <p>
+                        Unser Hilfe-System bietet zahlreiche Anleitungen sowie Antworten zu häufig gestellten Fragen (FAQ) zu TUCaN
+                        für Bewerber, Studierende und Lehrende/Stellvertretende.
+                    </p>
+
+                    <h2>Kontaktformular</h2>
+                    <p>
+                        Für alle weiteren Informationen und Anfragen nutzen Sie bitte unser
+                        <a href="#">Kontaktformular</a>.
+                    </p>
+
+                    <h2>Erstsemester</h2>
+                    <p>
+                        Um neuen Studierenden den Einstieg zu erleichtern, haben wir
+                        <a href="#">hier</a> alle wichtigen Hinweise für Erstsemester zusammengestellt.
+                    </p>
+
+                    <h2>Für Mitarbeiter/Lehrende: TUCaN-Zugang</h2>
+                    <p>
+                        Um Zugang zu TUCaN zu erhalten oder bei Anmeldeproblemen nutzen Sie bitte das entsprechende
+                        <a href="#">Formular</a>.
+                    </p>
+
+                    <p>
+                        Für weitere Fragen können Sie uns auch direkt per E-Mail kontaktieren:
+                        <a href="mailto:dannye.duffy565@tu.local">dannye.duffy565@tu.local</a>
+                    </p>
+                </main>
+            </div>
+            <div class="header-right">
+                <img src ="{{ url_for('static', filename='tu-logo.gif') }}" alt="TU Darmstadt logo" class="tu-logo">
+            </div>
+        </header>    
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <a>
+            <img src ="{{ url_for('static', filename='icons/impressum.png') }}" alt ="">Impressum</a>
+        <a href="{{ url_for('kontakt') }}">
+            <img src ="{{ url_for('static', filename='icons/kontakt.png') }}" alt ="">Kontakt</a>
+        <a>
+            <img src ="{{ url_for('static', filename='icons/drucken.png') }}" alt ="">Drucken</a>
+    </footer>
+</div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -4,6 +4,12 @@ import hashlib, re
 
 def login():
     error = None
+    try :
+        role = session.get("role")
+        if session.get("role") == "student":
+            return redirect("/aktuelles")
+    except Exception:
+        pass   
 
     if request.method == "POST":
         username = request.form.get("username")
@@ -68,13 +74,19 @@ def get_user_fullname(email):
 
 def admin_login():
     error = None
-
+    try :
+        role = session.get("role")
+        if session.get("role") == "admin":
+            return redirect("/admin/systemstatus")
+    except Exception:
+        pass   
+    
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
         password_hash = hashlib.md5(password.encode()).hexdigest()
 
-        blacklist = ["--", "OR",";"]
+        blacklist = ["--","OR",";"]
 
         for bad in blacklist:
             if bad in username:
@@ -92,11 +104,11 @@ def admin_login():
         try:
             user = db.execute(query).fetchone()
         except Exception:
-            error = f'User {username} does not exist.'
+            error = f'User {username} with the given password does not match our records.'
             return render_template("admin.html", error=error)
         
         if not user:
-            error = f'User {username} does not exist.'
+            error = f'User {username} with the given password does not match our records.'
         else:
             # legacy account disabled
             if user["role"] == "admin":
